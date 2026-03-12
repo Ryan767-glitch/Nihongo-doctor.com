@@ -1,7 +1,7 @@
 import { Region } from './types';
 import { asiaCountries } from './data-asia';
 import { europeCountries } from './data-europe';
-import { northAmericaCountries, latinAmericaCountries, oceaniaCountries, africaMiddleEastCountries } from './data-other-regions';
+import { northAmericaCountries, southAmericaCountries, oceaniaCountries, africaMiddleEastCountries } from './data-other-regions';
 
 function countClinics(countries: { clinics: { name: string }[] }[]) {
     return countries.reduce((sum, c) => sum + c.clinics.length, 0);
@@ -33,10 +33,10 @@ export const regions: Region[] = [
         countries: oceaniaCountries,
     },
     {
-        slug: 'latin-america',
-        name: '中南米',
-        description: '海外旅行・駐在に必須！中南米 (LatAm)で日本語が通じる医療機関を検索できます。',
-        countries: latinAmericaCountries,
+        slug: 'south-america',
+        name: '南米',
+        description: '海外旅行・駐在に必須！南米で日本語が通じる医療機関を検索できます。',
+        countries: southAmericaCountries,
     },
     {
         slug: 'africa-middle-east',
