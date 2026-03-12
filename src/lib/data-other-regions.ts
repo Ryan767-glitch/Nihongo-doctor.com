@@ -65,7 +65,7 @@ export const northAmericaCountries: Country[] = [
     },
 ];
 
-export const southAmericaCountries: Country[] = [
+export const latinAmericaCountries: Country[] = [
     {
         name: 'アルゼンチン',
         clinics: [
