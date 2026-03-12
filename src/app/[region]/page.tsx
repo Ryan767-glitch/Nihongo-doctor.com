@@ -7,8 +7,9 @@ export function generateStaticParams() {
     return regions.map(r => ({ region: r.slug }));
 }
 
-export function generateMetadata({ params }: { params: { region: string } }): Metadata {
-    const region = getRegionBySlug(params.region);
+export async function generateMetadata({ params }: { params: Promise<{ region: string }> }): Promise<Metadata> {
+    const { region: regionSlug } = await params;
+    const region = getRegionBySlug(regionSlug);
     if (!region) return {};
     const stats = getRegionStats(region);
     return {
@@ -26,8 +27,9 @@ function makeMapUrl(name: string, address: string, city: string, country: string
     return `https://www.google.com/maps/search/?api=1&query=${q}`;
 }
 
-export default function RegionPage({ params }: { params: { region: string } }) {
-    const region = getRegionBySlug(params.region);
+export default async function RegionPage({ params }: { params: Promise<{ region: string }> }) {
+    const { region: regionSlug } = await params;
+    const region = getRegionBySlug(regionSlug);
     if (!region) notFound();
 
     const stats = getRegionStats(region);
