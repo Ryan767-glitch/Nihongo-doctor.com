@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Globe, Map, Building2 } from 'lucide-react';
+import { Globe, Map, Building2, Tent, Sun } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -10,15 +10,15 @@ const continents = [
     { name: 'North America', ja: '北米', slug: 'north-america', icon: Map, color: 'bg-green-50 text-green-600' },
     { name: 'Europe', ja: 'ヨーロッパ', slug: 'europe', icon: Building2, color: 'bg-indigo-50 text-indigo-600' },
     { name: 'Oceania', ja: 'オセアニア', slug: 'oceania', icon: Globe, color: 'bg-orange-50 text-orange-600' },
-    { name: 'Africa', ja: 'アフリカ', slug: 'africa', icon: Map, color: 'bg-yellow-50 text-yellow-600' },
-    { name: 'South America', ja: '南米', slug: 'south-america', icon: Globe, color: 'bg-emerald-50 text-emerald-600' },
+    { name: 'Latin America', ja: '中南米', slug: 'latin-america', icon: Sun, color: 'bg-emerald-50 text-emerald-600' },
+    { name: 'Africa & Middle East', ja: 'アフリカ・中東', slug: 'africa-middle-east', icon: Tent, color: 'bg-yellow-50 text-yellow-600' },
 ];
 
 export function ContinentSelector() {
     const { t } = useLanguage();
 
     return (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {continents.map((c) => (
                 <Link
                     key={c.slug}
